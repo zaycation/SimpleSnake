@@ -81,13 +81,29 @@ export default class StickyNav extends React.Component {
                   <a
                     href="https://paypal.me/DemiGodProductions"
                     target="_blank"
-                    style={{ textDecoration: "none", color: "white" }}
+                    style={{ textDecoration: "none", color: "black" }}
                   >
                     PayPal
                   </a>
                 </DropdownItem>
-                <DropdownItem>Bitcoin</DropdownItem>
-                <DropdownItem>XMR</DropdownItem>
+                <DropdownItem>
+                  <a
+                    href="https://paypal.me/DemiGodProductions"
+                    target="_blank"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    Bitcoin
+                  </a>
+                </DropdownItem>
+                <DropdownItem>
+                  <a
+                    href="https://paypal.me/DemiGodProductions"
+                    target="_blank"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    XMR
+                  </a>
+                </DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </Nav>

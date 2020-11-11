@@ -7,7 +7,7 @@ import { Container, Row, Col } from "shards-react";
 import BackgroundImg from "./snakebg2.jpg";
 
 //file imports
-import StickyNav from "./Navbar";
+import StickyNav from "./components/Navbar";
 import Snake from "./Snake";
 import Food from "./Food";
 
@@ -49,13 +49,25 @@ class App extends Component {
       case 38:
         this.setState({ direction: "UP" });
         break;
+      case 87:
+        this.setState({ direction: "UP" });
+        break;
       case 40:
+        this.setState({ direction: "DOWN" });
+        break;
+      case 83:
         this.setState({ direction: "DOWN" });
         break;
       case 37:
         this.setState({ direction: "LEFT" });
         break;
+      case 65:
+        this.setState({ direction: "LEFT" });
+        break;
       case 39:
+        this.setState({ direction: "RIGHT" });
+        break;
+      case 68:
         this.setState({ direction: "RIGHT" });
         break;
     }
@@ -139,7 +151,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <div>
           <StickyNav />
         </div>
