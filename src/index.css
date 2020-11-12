@@ -1,25 +1,27 @@
+/** @format */
+
 .game-area {
-  position: relative;
-  margin: 50px auto;
-  width: 600px;
-  height: 600px;
-  border: 3.5px solid #000;
-  border-radius: 0.5%;
+	position: relative;
+	margin: 50px auto;
+	width: 600px;
+	height: 600px;
+	border: 3.5px solid #000;
+	border-radius: 0.5%;
 }
 
 .snake-dot {
-  position: absolute;
-  width: 2%;
-  height: 2%;
-  background-color: #212529;
-  border: 1px solid #000;
+	position: absolute;
+	width: 2%;
+	height: 2%;
+	background-color: #212529;
+	border: 1px solid #000;
 }
 
 .snake-food {
-  position: absolute;
-  width: 2%;
-  height: 2%;
-  background-color: #28a745;
-  border: 1px solid #000;
-  z-index: 1;
+	position: absolute;
+	width: 2%;
+	height: 2%;
+	background-color: #28a745;
+	border: 1px solid #000;
+	z-index: 1;
 }
