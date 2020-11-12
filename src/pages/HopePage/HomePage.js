@@ -28,6 +28,7 @@ const initialState = {
 	food: getRandomCoordinates(),
 	speed: 200,
 	direction: 'RIGHT',
+	isPause: false,
 	snakeDots: [
 		[0, 0],
 		[2, 0],
@@ -43,64 +44,75 @@ class HomePage extends Component {
 	}
 
 	componentDidUpdate() {
-		this.checkIfOutOfBorders();
-		this.checkIfCollapsed();
-		this.checkIfEat();
+		if (this.state.isPause === false) {
+			this.checkIfOutOfBorders();
+			this.checkIfCollapsed();
+			this.checkIfEat();
+		}
 	}
 
 	onKeyDown = (e) => {
 		e = e || window.event;
+
 		switch (e.keyCode) {
 			case 38:
-				this.setState({ direction: 'UP' });
+				this.setState({ direction: 'UP', isPause: false });
 				break;
 			case 87:
-				this.setState({ direction: 'UP' });
+				this.setState({ direction: 'UP', isPause: false });
 				break;
 			case 40:
-				this.setState({ direction: 'DOWN' });
+				this.setState({ direction: 'DOWN', isPause: false });
 				break;
 			case 83:
-				this.setState({ direction: 'DOWN' });
+				this.setState({ direction: 'DOWN', isPause: false });
 				break;
 			case 37:
-				this.setState({ direction: 'LEFT' });
+				this.setState({ direction: 'LEFT', isPause: false });
 				break;
 			case 65:
-				this.setState({ direction: 'LEFT' });
+				this.setState({ direction: 'LEFT', isPause: false });
 				break;
 			case 39:
-				this.setState({ direction: 'RIGHT' });
+				this.setState({ direction: 'RIGHT', isPause: false });
 				break;
 			case 68:
-				this.setState({ direction: 'RIGHT' });
+				this.setState({ direction: 'RIGHT', isPause: false });
+				break;
+			case 32:
+				this.setState({ direction: 'PAUSE', isPause: true });
 				break;
 		}
 	};
 
 	moveSnake = () => {
-		let dots = [...this.state.snakeDots];
-		let head = dots[dots.length - 1];
-
-		switch (this.state.direction) {
-			case 'RIGHT':
-				head = [head[0] + 2, head[1]];
-				break;
-			case 'LEFT':
-				head = [head[0] - 2, head[1]];
-				break;
-			case 'DOWN':
-				head = [head[0], head[1] + 2];
-				break;
-			case 'UP':
-				head = [head[0], head[1] - 2];
-				break;
+		if (this.state.isPause === false) {
+			let dots = [...this.state.snakeDots];
+			let head = dots[dots.length - 1];
+			switch (this.state.direction) {
+				case 'RIGHT':
+					head = [head[0] + 2, head[1]];
+					break;
+				case 'LEFT':
+					head = [head[0] - 2, head[1]];
+					break;
+				case 'DOWN':
+					head = [head[0], head[1] + 2];
+					break;
+				case 'UP':
+					head = [head[0], head[1] - 2];
+					break;
+				case 'PAUSE':
+					head = [head[0], head[1]];
+					break;
+			}
+			dots.push(head);
+			dots.shift();
+			this.setState({
+				snakeDots: dots,
+			});
 		}
-		dots.push(head);
-		dots.shift();
-		this.setState({
-			snakeDots: dots,
-		});
+		return;
 	};
 
 	checkIfOutOfBorders() {
