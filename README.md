@@ -6,4 +6,4 @@ This is a simple infinite snake game created with react.js and [Create React App
 
 [Live Screenshot](https://imgur.com/a/xgn9S7i)
 
-[Click here for Live Demo](https://infallible-banach-4ccd3f.netlify.app/)
+[Click here for Live Demo](https://simplesnake-mern.netlify.app/)
